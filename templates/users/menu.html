@@ -1,0 +1,38 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block main %}
+   
+   <div class="container my-5" style="max-width: 1200px;">
+    
+    <div style="margin-top: 60px; display: flex;"><h1 ><strong>Our Menu</strong></h1>
+    {% if request.session.role == "Manager" %}
+
+    <a href="{% url 'create' %}" style="background-color: rgb(240,240,240); border-radius: 8px; border: none; margin-left: 880px; padding: 10px; height: 40px; font-size: 14px;">Add item</a>
+    {% endif %}
+    </div>
+    <p style="color: gray;">Explore our culinary delights, crafted with the freshest ingredients and a touch of magic.</p>
+    {% regroup all_data by category as category_list %}
+        
+    {% for category in category_list %}
+      <h4 class="mt-5"><strong>{{category.grouper}}</strong></h4>
+        {% for i in category.list %}
+        <div class="row">
+            <div class="col-md-8">
+                <h6 class="mt-4"><strong>{{i.name}}</strong></h6>
+                <p style="color: gray;">{{i.description}}</p>
+                <p>${{i.price}}</p>
+                 <a href="{% url 'add' i.id %}" style="background-color: rgb(240,240,240); border-radius: 8px; border: none; padding: 10px; height: 40px; font-size: 14px;">Add to Order</a>
+                {% if request.session.role == "Manager" %}
+                    <a href="{% url 'update' i.id %}" style="background-color: rgb(240,240,240); border-radius: 8px; border: none; padding: 10px; height: 40px; font-size: 14px;">Update Item</a>
+                    <a href="{% url 'delete' i.id %}" style="background-color: rgb(240,240,240); border-radius: 8px; border: none; padding: 10px; height: 40px; font-size: 14px;">Delete Item</a>
+                 {% endif %}
+            </div>
+            <div class="col-md-4">
+                <img src="{{i.image.url}}" alt="" style="width: 350px; height: 250px;" class="mt-4 rounded-4">
+            </div>
+        </div>
+        {% endfor %}
+    {% endfor %}
+   </div>
+   
+{% endblock %}

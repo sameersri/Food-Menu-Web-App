@@ -1,0 +1,41 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block main %}
+   <div class="container" style="max-width: 1200px;">
+   <form action="">
+   <h1 style="margin-top: 60px;">Contact Us </h1>
+   <p style="color: gray; margin-bottom: 20px; border-bottom: 1px solid rgb(189, 186, 186); padding-bottom: 30px; padding-top: 5px;" >We're here to assist you with any inquiries or reservations. Reach out to us through the contact form below, or use the provided contact details.</p>
+   <div class="d-flex border-bottom">
+    <p style="color: gray;">Address</p> 
+    <p style="margin-left: 160px;">123 Oak Street, Anytown, CA 91234</p>
+   </div>
+   <div class="d-flex border-bottom mt-3">
+    <p style="color: gray;">Phone</p> 
+    <p style="margin-left: 180px;">(555) 123-4567</p>
+   </div>
+    <div class="d-flex border-bottom mt-3">
+        <p style="color: gray;">Email</p> 
+        <p style="margin-left: 180px;">info@gildedfork.com</p>
+   </div>
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6502565.951838051!2d-119.306607!3d37.26950555000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1753618233264!5m2!1sen!2sin" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+   <h4 style="margin-top: 50px;">Send us a message</h4>
+   <div class="mb-3 mt-4">
+        <label for="exampleFormControlInput1" class="form-label">Your Name</label>
+        <input type="text" class="form-control border-0 " id="exampleFormControlInput1" style="background-color: rgb(244,242,241); width: 500px;" placeholder="Enter your name">
+   </div>
+   <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Your Email</label>
+        <input type="email" class="form-control border-0 " id="exampleFormControlInput1" style="background-color: rgb(244,242,241); width: 500px;" placeholder="Enter your email">
+   </div>
+   <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Subject</label>
+        <input type="text" class="form-control border-0 " id="exampleFormControlInput1" style="background-color: rgb(244,242,241); width: 500px;" placeholder="Enter your subject">
+   </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Message</label>
+        <textarea class="form-control" style="background-color: rgb(244,242,241); width: 500px;" id="exampleFormControlTextarea1" placeholder="Enter your message" rows="3"></textarea>
+   </div>
+   <button type="button" class="btn btn pe-3 ps-3 mb-4" style="background-color: rgb(236,210,191);">Submit</button>
+   </div>
+</form>
+{% endblock %}

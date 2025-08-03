@@ -1,0 +1,17 @@
+{% extends "users/base.html" %}
+{% block main %}
+    <h1 style="text-align: center; margin-top: 60px;"><strong>Login</strong></h1>
+    <form action="" method="post"> 
+        {% csrf_token %}
+        <div>
+           <label for="{{ form.username.id_for_label }}" class="form-label" style="margin-left: 160px; margin-top: 60px;">Username or Email</label>
+           {{ form.username }}
+        </div>
+        <div>
+            <label for="{{ form.password.id_for_label }}"  class="form-label" style="margin-left: 160px; margin-top: 20px">Password</label>
+            {{ form.password }}
+        </div>
+        <button class="btn rounded-5 p-1 mt-4" type="submit" style="background-color: rgb(236,121,39); color: white; margin-left: 160px; width:500px;">Login</button>
+    </form>
+    <p><a href="{% url 'register' %}" class="link" style="color: rgb(192,179,170); display: inline-block; margin-left: 600px; margin-top: 25px;">New User? Create Account</a></p>
+{% endblock %}

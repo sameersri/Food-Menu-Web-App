@@ -1,0 +1,55 @@
+{% load static %}
+<nav>
+  <div class="position-relative" style="display: flex;justify-content: space-around;height: 50px;border-bottom: 2px solid grey;">
+    <div class="position-absolute mt-2 fw-bold" style="left: 30px; font-size: 18px">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'image/logo.png' %}" alt="" height="30"/>The Culinary Haven</a>
+    </div>
+    <ul>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'menu' %}">Menu</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li>
+        <a href="{% url 'logout' %}"><button class="move-up p-1" style="border-radius: 8px; position: relative;bottom: 4px;border: none;"class="p-1">Log out</button></a>
+      </li>
+      {% else %}
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li>
+        <a href="{% url 'register' %}"
+          ><button
+            class="move-up p-1"
+            style="
+              border-radius: 8px;
+              position: relative;
+              bottom: 4px;
+              border: none;
+            "
+            class="p-1"
+          >
+            Signup
+          </button></a
+        >
+      </li>
+      <li>
+        <a href="{% url 'login' %}"
+          ><button
+            class="move-up p-1"
+            style="
+              border-radius: 8px;
+              position: relative;
+              bottom: 4px;
+              border: none;
+            "
+            class="p-1"
+          >
+            Log in
+          </button></a
+        >
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

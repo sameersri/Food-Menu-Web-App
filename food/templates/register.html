@@ -1,0 +1,35 @@
+{% extends 'users/base.html' %}
+{% block main %}
+    <h1 style="text-align: center; margin-top: 60px;"><strong>Create an Account</strong></h1>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <div>
+           <label for="{{ form.username.id_for_label }}" class="form-label" style="margin-left: 160px; margin-top: 60px;">Username</label>
+           {{ form.username }}
+           {% if form.username.errors %}
+               <div style="margin-left: 160px;">{{ form.username.errors.0 }}</div>
+           {% endif %}
+        </div>
+        </div>
+        <div>
+        <label for="{{ form.email.id_for_label }}"  class="form-label" style="margin-left: 160px; margin-top: 20px">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+               <div style="margin-left: 160px;">{{ form.email.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <label for="{{ form.password.id_for_label }}"  class="form-label" style="margin-left: 160px; margin-top: 20px">Password</label>
+            {{ form.password }}
+        </div>
+        <div>
+            <label for="{{ form.confirm_password.id_for_label }}"  class="form-label" style="margin-left: 160px; margin-top: 20px">Confirm Password</label>
+            {{ form.confirm_password }}
+            {% if form.non_field_errors %}
+               <div style="margin-left: 160px;">{{ form.non_field_errors.0 }}</div>
+            {% endif %}
+        </div>
+        <button class="btn rounded-5 p-1 mt-4" type="submit" style="background-color: rgb(236,121,39); color: white; margin-left: 160px; width:500px;">Register</button>
+    </form>
+    <p><a href="{% url 'login' %}" class="link" style="color: rgb(192,179,170); display: inline-block; margin-left: 600px; margin-top: 25px;">Already have an account? Log In </a></p>
+{% endblock %}
