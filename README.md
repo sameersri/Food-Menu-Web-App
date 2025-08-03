@@ -1,4 +1,4 @@
-# Food Menu Web App 🍽️
+# Food Menu Web App 
 
 A web application built with Django that allows managers to create and update food items, and users to browse through a categorized menu. The app supports user authentication, role-based access (manager/user), and image uploads for food items.
 
